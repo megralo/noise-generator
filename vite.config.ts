@@ -12,6 +12,8 @@ const testExecArgv = process.allowedNodeEnvironmentFlags.has('--experimental-web
   : [];
 
 export default defineConfig({
+  // GitHub Pages serves the project under /noise-generator/, not the domain root.
+  base: '/noise-generator/',
   plugins: [react()],
   css: {
     preprocessorOptions: {
