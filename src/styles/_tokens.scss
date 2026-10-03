@@ -1,0 +1,34 @@
+// Design tokens and mixins shared by the partials. Emits no CSS on its own.
+
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+$radius-panel: 1.25rem;
+$radius-control: 0.75rem;
+
+@function accent($alpha: 1) {
+  @return hsl(var(--accent-h) var(--accent-s) var(--accent-l) / $alpha);
+}
+
+@function ink($alpha: 1) {
+  @return rgb(var(--ink-rgb) / $alpha);
+}
+
+@mixin focus-ring($offset: 2px) {
+  outline: 2px solid accent(0.95);
+  outline-offset: $offset;
+}
+
+@mixin glass($strength: 1) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075 * $strength), rgba(255, 255, 255, 0.03 * $strength));
+  border: 1px solid rgb(255 255 255 / 0.09);
+  box-shadow:
+    0 24px 60px -28px rgb(0 0 0 / 0.7),
+    inset 0 1px 0 rgb(255 255 255 / 0.07);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

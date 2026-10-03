@@ -1,0 +1,10 @@
+// Partials wrap their rules in Tailwind layers, so utilities can still override them.
+@use 'base';
+@use 'scene';
+@use 'controls';
+@use 'knob';
+@use 'instrument';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

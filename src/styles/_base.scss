@@ -1,0 +1,53 @@
+@use 'tokens' as *;
+
+@layer base {
+  :root {
+    // Initial values match the default configuration; useSceneTheme takes over at runtime.
+    --ink-rgb: 244 245 248;
+    --bg: 335 38% 17%;
+    --glow: 340 85% 72%;
+    --accent-h: 338;
+    --accent-s: 90%;
+    --accent-l: 76%;
+    --glow-alpha: 0.2;
+    --glow-spread: 68%;
+    --breathe: 0;
+    color-scheme: dark;
+  }
+
+  html {
+    background-color: hsl(var(--bg));
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: hsl(var(--bg));
+    color: ink();
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: accent(0.35);
+  }
+
+  :focus-visible {
+    @include focus-ring;
+  }
+
+  kbd {
+    display: inline-block;
+    min-width: 1.4em;
+    padding: 0.05em 0.4em;
+    border: 1px solid ink(0.2);
+    border-bottom-width: 2px;
+    border-radius: 0.35rem;
+    background: ink(0.06);
+    font-family: $font-mono;
+    font-size: 0.85em;
+    text-align: center;
+    color: ink(0.85);
+  }
+}
